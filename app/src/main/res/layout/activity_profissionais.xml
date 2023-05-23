@@ -6,42 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <Button
-        android:id="@+id/btn_profissionais"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profissionais"
-        android:onClick="irTelaProfissionais"
+        android:text="Utilizando recyclerView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_profissionais"
+        android:layout_width="325dp"
+        android:layout_height="397dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.456" />
+        app:layout_constraintVertical_bias="0.547" />
 
     <Button
-        android:id="@+id/btn_telaservicos"
+        android:id="@+id/btn_ranking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="irTelaServico"
-        android:text="Serviços"
+        android:text="Olhar Ranking"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
-
-    <Button
-        android:id="@+id/btn_telaHistorico"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="IrTelaHistorico"
-        android:text="Histórico"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73" />
+        app:layout_constraintTop_toBottomOf="@+id/recycler_profissionais"
+        app:layout_constraintVertical_bias="0.133" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

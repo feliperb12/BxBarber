@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="315dp"
+        android:layout_height="464dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/borda"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_barbeiro"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            app:cardCornerRadius="20dp"
+            app:cardElevation="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imagem_barbeiro_detalhes"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.035"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.018"
+            tools:src="@drawable/userprofile" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/nome_barbeiro_detalhes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintStart_toEndOf="@+id/card_barbeiro"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Nome Barbeiro" />
+
+        <TextView
+            android:id="@+id/telefone_barbeiro_detalhes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/card_barbeiro"
+            app:layout_constraintTop_toBottomOf="@+id/nome_barbeiro_detalhes"
+            tools:text="Telefone Barbeiro" />
+
+        <TextView
+            android:id="@+id/txt_horarios"
+            android:layout_width="287dp"
+            android:layout_height="200dp"
+            android:text="DIA DA SEMANA                          HORÁRIO
+\n
+\n
+SEGUNDA      -----------------       09:00 ÁS 18:00
+\n
+\n
+TERÇA            -----------------       09:00 ÁS 18:00
+\n
+\n
+QUARTA         -----------------       09:00 ÁS 18:00
+\n
+\n
+QUINTA          -----------------       09:00 ÁS 18:00
+\n
+\n
+SEXTA            -----------------      09:00 ÁS 18:00
+\n
+
+
+"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_barbeiro"
+            app:layout_constraintVertical_bias="0.207" />
+
+        <Button
+            android:id="@+id/btn_verperfil"
+            android:layout_width="122dp"
+            android:layout_height="45dp"
+            android:text="Avaliar"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="245dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="20dp"
+            android:numStars="5"
+            android:stepSize="1"
+            android:scaleX="0.55"
+            android:scaleY="0.55"
+            android:progressTint="#FFEB3B"
+            app:layout_constraintBottom_toTopOf="@+id/btn_verperfil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

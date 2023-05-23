@@ -20,6 +20,47 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Tela_servicosBarbearia"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Tela_profissionais"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Tela_DetalheBarbeiro"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".Tela_profissionais"
+            android:screenOrientation="portrait">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Tela_profissionais" />
+        </activity>
+
+        <activity
+            android:name=".Tela_historico"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>

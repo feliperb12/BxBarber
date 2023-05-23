@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">bxBarber</string>
+    <string name="selecione_dataInicial">Data Inicial</string>
+    <string name="selecione_dataFim">Data Final</string>
 </resources>
