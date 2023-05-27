@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "805817879044",
+    "firebase_url": "https://bxbarber-801af-default-rtdb.firebaseio.com",
+    "project_id": "bxbarber-801af",
+    "storage_bucket": "bxbarber-801af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805817879044:android:d1214a06fa6ecd70cc0351",
+        "android_client_info": {
+          "package_name": "br.com.bxbarber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805817879044-9md5tcot0emunejj77a5hlco9p4c4nmb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN9JeNnJxwxGXMOBupFUWJINT_68xeqIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805817879044-9md5tcot0emunejj77a5hlco9p4c4nmb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

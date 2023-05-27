@@ -16,6 +16,11 @@ public class Barbeiro {
         this.telefoneBarbeiro = telefoneBarbeiro;
     }
 
+    public Barbeiro( String nomeBarbeiro, String telefoneBarbeiro) {
+        this.nomeBarbeiro = nomeBarbeiro;
+        this.telefoneBarbeiro = telefoneBarbeiro;
+    }
+
 
     public Integer getFoto() {
         return foto;

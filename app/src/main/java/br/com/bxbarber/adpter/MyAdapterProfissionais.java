@@ -30,6 +30,10 @@ public class MyAdapterProfissionais extends RecyclerView.Adapter<MyAdapterProfis
         this.listener =  listener;
     }
 
+    public MyAdapterProfissionais(List<Barbeiro> barbeiro) {
+        this.barbeiros = barbeiro;
+    }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
