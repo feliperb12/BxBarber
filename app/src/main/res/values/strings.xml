@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">bxBarber</string>
+
+    <string name="menu_profissionais">Profissionais</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_servicos">Serviços</string>
 </resources>
