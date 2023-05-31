@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +36,10 @@ public class MyAdapterProfissionais extends RecyclerView.Adapter<MyAdapterProfis
         this.barbeiros = barbeiro;
     }
 
+    public void setBarbeiros(List<Barbeiro> barbeiros) {
+        this.barbeiros = barbeiros;
+    }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -45,7 +51,10 @@ public class MyAdapterProfissionais extends RecyclerView.Adapter<MyAdapterProfis
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Barbeiro barbeiro = barbeiros.get(position);
-        holder.foto.setImageResource(barbeiro.getFoto());
+        Glide.with(holder.itemView.getContext())
+                .load(barbeiro.getImagemUrl())
+                .into(holder.foto);
+        //holder.foto.setImageResource(barbeiro.getFoto());
         holder.nome.setText(barbeiro.getNomeBarbeiro());
         holder.telefone.setText(barbeiro.getTelefoneBarbeiro());
         holder.botaoPerfil.setOnClickListener(new View.OnClickListener() {
