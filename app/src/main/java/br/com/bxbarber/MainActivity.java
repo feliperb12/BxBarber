@@ -42,4 +42,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void irTelaNoticias(View view){
+        Intent intent = new Intent(this, Tela_noticias.class);
+        Bundle bundle = new Bundle();
+        startActivity(intent);
+    }
+
+    public void irTelaAjuda(View view){
+        Intent intent = new Intent(this, Tela_ajuda.class);
+        Bundle bundle = new Bundle();
+        startActivity(intent);
+    }
+
 }

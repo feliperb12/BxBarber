@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -42,7 +44,6 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
         recyclerViewBarbeiros.setLayoutManager(layoutManager);
 
         // Adicionar dados de exemplo
-//        List<Barbeiro> barbeiros = getListaDeBarbeiros();
         getListaDeBarbeiros();
 
         // Configurar o adaptador
@@ -54,30 +55,11 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
     public void onItemClick(Barbeiro barbeiro) {
         // Abrir a tela de detalhes do barbeiro
         Intent intent = new Intent(this, Tela_DetalheBarbeiro.class);
-        intent.putExtra("imagemResId", barbeiro.getFoto());
+        intent.putExtra("imagemUrl", barbeiro.getImagemUrl());
         intent.putExtra("nome", barbeiro.getNomeBarbeiro());
         intent.putExtra("telefone", barbeiro.getTelefoneBarbeiro());
         startActivity(intent);
     }
-
-
-    // Método de exemplo para obter a lista de barbeiros
-//    private List<Barbeiro> getListaDeBarbeiros() {
-
-
-//        List<Barbeiro> barbeiros = new ArrayList<>();
-//        barbeiros.add(new Barbeiro(R.drawable.barbeiro, "Cleiton", "64984518533"));
-//        barbeiros.add(new Barbeiro(R.drawable.barbeiro2, "Jose Henrique", "649932141"));
-//        barbeiros.add(new Barbeiro(R.drawable.barbeiro3, "Tulho Araujo", "649932141"));
-//        barbeiros.add(new Barbeiro(R.drawable.barbeiro3, "Max Tavares", "649932141"));
-//        barbeiros.add(new Barbeiro(R.drawable.barbeiro3, "Ricardo Silva", "649932141"));
-//        barbeiros.add(new Barbeiro(R.drawable.barbeiro3, "Bernado Araujo", "649932141"));
-//        barbeiros.add(new Barbeiro(R.drawable.barbeiro3, "Tulho Araujo", "649932141"));
-//        barbeiros.add(new Barbeiro(R.drawable.barbeiro3, "Tulho Araujo", "649932141"));
-//        return barbeiros;
-
-//    }
-
     private void getListaDeBarbeiros() {
         CollectionReference usuariosRef = db.collection("barbeiros");
 
@@ -90,17 +72,28 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String nome = document.getString("nome");
                         String telefone = document.getString("telefone");
+                        String foto = document.getString("imagemUrl");
 
-                        Barbeiro user = new Barbeiro(nome, telefone);
+                        Barbeiro user = new Barbeiro(nome, telefone,foto);
                         userList.add(user);
                     }
 
+                    // Atualizar a lista de barbeiros no adaptador
+                    barbeiroAdapter.setBarbeiros(userList);
+                    barbeiroAdapter.notifyDataSetChanged();
                 } else {
-                    String Tag="erro";
+                    String Tag = "erro";
                     Log.d(Tag, "Erro ao obter os dados: ", task.getException());
                 }
             }
         });
+    }
+
+
+    public void onClickRanking(View view) {
+        // Abrir a tela de detalhes do barbeiro
+        Intent intent = new Intent(this, Tela_classificacao_barbeiro.class);
+        startActivity(intent);
     }
 
 

@@ -13,11 +13,15 @@
         android:layout_margin="10dp"
         android:background="@drawable/borda"
         android:elevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout_promocao"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
+        app:layout_constraintHorizontal_bias="0.488"
+=======
+>>>>>>> duarte_novo
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254">
+        app:layout_constraintVertical_bias="0.841">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -36,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="Dicas:\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio."
+                android:text="Dicas:\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio,Lorem ipsum doetur  odio."
                 android:textAlignment="textStart"
                 android:textColor="@android:color/black" />
 
@@ -76,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="Promoções:\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio."
+                android:text="Promoções:\nLorem ipsum dolor sit amorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio."
                 android:textAlignment="textStart"
                 android:textColor="@android:color/black" />
 
@@ -94,10 +98,10 @@
         android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.682">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_promocao"
+        app:layout_constraintVertical_bias="0.158">
 
         <LinearLayout
             android:id="@+id/linearLayout_new_produtos"
@@ -116,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="Novos Produtos:\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio."
+                android:text="Novos Produtos:\nLorem ipsum dollor sit amet, consectetur adipiscing elit. Curabitur odio,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio."
                 android:textAlignment="textStart"
                 android:textColor="@android:color/black" />
 
