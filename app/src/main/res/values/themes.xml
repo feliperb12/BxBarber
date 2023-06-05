@@ -34,10 +34,4 @@
         <item name="android:textSize">15sp</item>
     </style>
 
-    <style name="ic_style">
-        <item name="colorPrimary">@color/white</item>
-    </style>
-
-
-
 </resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+
+        <item
+            android:id="@+id/agendamento"
+            android:title="@string/agendamento"
+            android:icon="@drawable/ic_calendario"/>
+
+        <item
+            android:id="@+id/minhaAgenda"
+            android:title="@string/minhaAgenda"
+            android:icon="@drawable/ic_notas"/>
+
+        <item
+            android:id="@+id/historico"
+            android:title="@string/historico"
+            android:icon="@drawable/ic_historico"/>
+
+        <item
+            android:id="@+id/noticias"
+            android:title="@string/noticias"
+            android:icon="@drawable/ic_noticias"/>
+
+        <item
+            android:id="@+id/ajuda"
+            android:title="@string/ajuda"
+            android:icon="@drawable/ic_ajuda"/>
+
+        <item
+            android:id="@+id/sair"
+            android:icon="@drawable/ic_sair"
+            android:title="Sair">
+
+        </item>
+
+    </group>
+
+
+
+</menu>

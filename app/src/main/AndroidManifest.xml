@@ -34,7 +34,6 @@
             android:configChanges="orientation|screenSize"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -44,7 +43,6 @@
             android:configChanges="orientation|screenSize"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -54,18 +52,15 @@
             android:configChanges="orientation|screenSize"
             android:parentActivityName=".Tela_profissionais"
             android:screenOrientation="portrait">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Tela_profissionais" />
         </activity>
-
         <activity
             android:name=".Tela_historico"
             android:configChanges="orientation|screenSize"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
