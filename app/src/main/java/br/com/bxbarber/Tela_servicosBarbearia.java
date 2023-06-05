@@ -14,3 +14,4 @@ public class Tela_servicosBarbearia extends AppCompatActivity {
         Intent intent = getIntent();
     }
 }
+

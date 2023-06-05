@@ -10,7 +10,7 @@
     <EditText
         android:id="@+id/editDataInicial"
         android:layout_width="139dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:hint="Data Inicial"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout_historico"
@@ -23,7 +23,7 @@
     <EditText
         android:id="@+id/editDataFinal"
         android:layout_width="139dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:hint="Data Final"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout_historico"
