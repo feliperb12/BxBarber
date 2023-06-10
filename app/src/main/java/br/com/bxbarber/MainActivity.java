@@ -64,7 +64,17 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         startActivity(intent);
     }
+    public void irTelaAgendamento(View view){
+        Intent intent = new Intent(this, Tela_Agendamento.class);
+        Bundle bundle = new Bundle();
+        startActivity(intent);
+    }
 
+    public void irTelaListAgendamento(View view){
+        Intent intent = new Intent(this, Tela_listAgendamento.class);
+        Bundle bundle = new Bundle();
+        startActivity(intent);
+    }
 
 
 }

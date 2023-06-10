@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:id="@+id/frag_agendamento"
-    tools:context=".FragAgendamento">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +17,7 @@
             android:src="@drawable/logo_transparente" />
 
         <EditText
-            android:id="@+id/edit_date"
+            android:id="@+id/edit_date_editar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -32,7 +29,7 @@
             android:background="@drawable/edittext_agendamento"/>
 
         <Spinner
-            android:id="@+id/spin_servico"
+            android:id="@+id/spin_servico_editar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -43,7 +40,7 @@
             android:background="@drawable/edittext_agendamento"/>
 
         <Spinner
-            android:id="@+id/spin_profissional"
+            android:id="@+id/spin_profissional_editar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -54,8 +51,8 @@
             android:background="@drawable/edittext_agendamento"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="311dp"
+            android:layout_height="155dp"
             android:layout_marginTop="30dp"
             android:padding="5dp">
 
@@ -70,7 +67,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/infoAgendamento"
+                android:id="@+id/infoAgendamento_editar"
                 android:layout_width="350dp"
                 android:layout_height="175dp"
                 android:gravity="center"
@@ -78,21 +75,20 @@
                 app:layout_constraintBottom_toBottomOf="@+id/view3"
                 app:layout_constraintEnd_toEndOf="@+id/view3"
                 app:layout_constraintStart_toStartOf="@+id/view3"
-                app:layout_constraintTop_toTopOf="@+id/view3" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="4dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/btn_agendar"
+            android:id="@+id/btn_salvar"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Agendar"
-
+            android:text="SALVAR"
+            android:onClick="salvar"
             android:layout_marginTop="30dp"
             android:textColor="@color/white"
             android:backgroundTint="@color/orange"
             android:background="@drawable/button_style"/>
     </LinearLayout>
-
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
