@@ -23,4 +23,13 @@
         android:name="br.com.bxbarber.FragMinhaAgenda"
         tools:layout="@layout/fragment_minha_agenda">
     </fragment>
+
+    <fragment
+        android:id="@+id/homeHistorico"
+        android:name="br.com.bxbarber.FragHistorico"
+        tools:layout="@layout/fragment_historico">
+
+    </fragment>
+
+
 </navigation>

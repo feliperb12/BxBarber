@@ -50,7 +50,7 @@
 
     <EditText
         android:id="@+id/emailUsuarioLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:hint="Digite seu E-mail"
         android:autofillHints="emailAddress"
@@ -89,6 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPassword"/>
 
+
     <Button
         android:id="@+id/login"
         style="@style/ButtonStyle"
@@ -119,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         style="@style/ButtonStyleIcon"
-        android:drawableLeft="@drawable/google"
+        android:drawableStart="@drawable/google"
         android:text="Entrar com o Google"
         android:paddingStart="15dp"
         android:paddingEnd="55dp"
@@ -135,7 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         style="@style/ButtonStyleIcon"
-        android:drawableLeft="@drawable/facebook"
+        android:drawableStart="@drawable/facebook"
         android:text="Entrar com o Facebook"
         android:paddingStart="15dp"
         android:paddingEnd="55dp"

@@ -105,9 +105,9 @@ SEXTA            -----------------      09:00 ÁS 18:00
         <Button
             android:id="@+id/btn_verperfil"
             android:layout_width="122dp"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:text="Avaliar"
-            android:textSize="10dp"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
