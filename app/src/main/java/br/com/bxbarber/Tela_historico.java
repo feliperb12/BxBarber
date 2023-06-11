@@ -69,7 +69,6 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
         toolbar = findViewById(R.id.toolbar);
 
 
-
         // Configurar a Toolbar
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -204,6 +203,7 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
             }
         });
     }
+    // Método para realizar a consulta no Firestore e atualizar o ListView com os resultados
     public void realizarConsultaNoFire(View view) {
         // Dentro do método onClick dos EditTexts de data
 
@@ -257,19 +257,20 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
                     // Construir a string a ser exibida no ListView
                     String item = "R$" + valorFormatado + " - " + servico + " " + dataFormatada;
                     cortesList.add(item);
-                    valorTotal +=valor;
-                     valorTotalFormatado = decimalFormat.format(valorTotal);
+                    valorTotal += valor;
+                    valorTotalFormatado = decimalFormat.format(valorTotal);
                 }
 
                 // Atualizar o adaptador do ListView com os dados filtrados
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(Tela_historico.this,
                         R.layout.activity_listview_historico, R.id.txt_item_corte, cortesList);
                 listView.setAdapter(adapter);
-                txt_valorTotal.setText(valorTotalFormatado);
+                txt_valorTotal.setText("R$"+valorTotalFormatado);
 
             }
         });
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
@@ -319,6 +320,7 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
         return true;
     }
 
+    // Métodos para abrir as telas correspondentes ao clicar nos itens do menu lateral
     private void openScreen1() {
         Intent intent = new Intent(this, Tela_Agendamento.class);
         startActivity(intent);
@@ -348,14 +350,17 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
         Intent intent = new Intent(this, tela_login.class);
         startActivity(intent);
     }
+
     private void openScreen7() {
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
+
     private void openScreen8() {
         Intent intent = new Intent(this, Tela_servicosBarbearia.class);
         startActivity(intent);
     }
+
     private void openScreen9() {
         Intent intent = new Intent(this, Tela_profissionais.class);
         startActivity(intent);

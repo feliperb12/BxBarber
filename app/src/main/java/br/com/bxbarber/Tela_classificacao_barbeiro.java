@@ -50,12 +50,11 @@ public class Tela_classificacao_barbeiro extends AppCompatActivity implements Na
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classificacao_barbeiro);
 
-        //CONFIGURAÇÕES NAVBAR E BOTTOMBAR
+        // CONFIGURAÇÕES NAVBAR E BOTTOMBAR
         // Referenciar os componentes do layout
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
         toolbar = findViewById(R.id.toolbar);
-
 
         // Configurar a Toolbar
         setSupportActionBar(toolbar);
@@ -119,6 +118,7 @@ public class Tela_classificacao_barbeiro extends AppCompatActivity implements Na
                 });
     }
 
+    // Método para exibir a classificação dos barbeiros na tabela
     private void exibirClassificacaoBarbeiros(List<DocumentSnapshot> barbeiros) {
         // Ordenar a lista de barbeiros com base nos pontos em ordem decrescente
         Collections.sort(barbeiros, new Comparator<DocumentSnapshot>() {
@@ -185,6 +185,7 @@ public class Tela_classificacao_barbeiro extends AppCompatActivity implements Na
             }
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
@@ -202,8 +203,7 @@ public class Tela_classificacao_barbeiro extends AppCompatActivity implements Na
         }
     }
 
-
-    //MENUBAR LATERAL
+    // MENUBAR LATERAL
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Verifique qual item do menu foi selecionado e abra a tela correspondente
@@ -234,6 +234,7 @@ public class Tela_classificacao_barbeiro extends AppCompatActivity implements Na
         return true;
     }
 
+    // Métodos para abrir telas correspondentes ao item selecionado no menu lateral
     private void openScreen1() {
         Intent intent = new Intent(this, Tela_Agendamento.class);
         startActivity(intent);
@@ -263,17 +264,19 @@ public class Tela_classificacao_barbeiro extends AppCompatActivity implements Na
         Intent intent = new Intent(this, tela_login.class);
         startActivity(intent);
     }
+
     private void openScreen7() {
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
+
     private void openScreen8() {
         Intent intent = new Intent(this, Tela_servicosBarbearia.class);
         startActivity(intent);
     }
+
     private void openScreen9() {
         Intent intent = new Intent(this, Tela_profissionais.class);
         startActivity(intent);
     }
-
 }

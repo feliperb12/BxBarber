@@ -202,7 +202,7 @@ public class Tela_Agendamento extends AppCompatActivity implements NavigationVie
         buttonSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                scheduleAppointment();
+                Agendar();
             }
         });
     }
@@ -249,7 +249,7 @@ public class Tela_Agendamento extends AppCompatActivity implements NavigationVie
         });
     }
 
-    private void scheduleAppointment() {
+    private void Agendar() {
         String data = editTextDate.getText().toString();
         String servico = spinnerService.getSelectedItem().toString();
         String barbeiro = spinnerBarber.getSelectedItem().toString();

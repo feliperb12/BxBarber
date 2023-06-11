@@ -1,7 +1,6 @@
 package br.com.bxbarber;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,29 +14,19 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,15 +35,15 @@ import br.com.bxbarber.adpter.MyAdapterProfissionais;
 import br.com.bxbarber.model.Barbeiro;
 
 public class Tela_profissionais extends AppCompatActivity implements MyAdapterProfissionais.OnItemClickListener, NavigationView.OnNavigationItemSelectedListener {
+    // Declaração dos componentes da interface
     private RecyclerView recyclerViewBarbeiros;
     private MyAdapterProfissionais barbeiroAdapter;
-
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private NavigationView navigationView;
     private Toolbar toolbar;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -62,12 +51,12 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profissionais);
 
-        //CONFIGURAÇÕES NAVBAR E BOTTOMBAR
+        // CONFIGURAÇÕES NAVBAR E BOTTOMBAR
+
         // Referenciar os componentes do layout
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
         toolbar = findViewById(R.id.toolbar);
-
 
         // Configurar a Toolbar
         setSupportActionBar(toolbar);
@@ -123,10 +112,10 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
         getListaDeBarbeiros();
 
         // Configurar o adaptador
-        barbeiroAdapter = new MyAdapterProfissionais(new ArrayList<>(),this);
+        barbeiroAdapter = new MyAdapterProfissionais(new ArrayList<>(), this);
         recyclerViewBarbeiros.setAdapter(barbeiroAdapter);
-
     }
+
     @Override
     public void onItemClick(Barbeiro barbeiro) {
         // Abrir a tela de detalhes do barbeiro
@@ -136,6 +125,7 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
         intent.putExtra("telefone", barbeiro.getTelefoneBarbeiro());
         startActivity(intent);
     }
+
     private void getListaDeBarbeiros() {
         CollectionReference usuariosRef = db.collection("barbeiros");
 
@@ -150,7 +140,7 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
                         String telefone = document.getString("telefone");
                         String foto = document.getString("imagemUrl");
 
-                        Barbeiro user = new Barbeiro(nome, telefone,foto);
+                        Barbeiro user = new Barbeiro(nome, telefone, foto);
                         userList.add(user);
                     }
 
@@ -165,12 +155,12 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
         });
     }
 
-
     public void onClickRanking(View view) {
         // Abrir a tela de detalhes do barbeiro
         Intent intent = new Intent(this, Tela_classificacao_barbeiro.class);
         startActivity(intent);
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
@@ -188,8 +178,7 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
         }
     }
 
-
-    //MENUBAR LATERAL
+    // MENUBAR LATERAL
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Verifique qual item do menu foi selecionado e abra a tela correspondente
@@ -212,7 +201,6 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
             case R.id.sair:
                 openScreen6();
                 break;
-
         }
         // Fecha o Navigation Drawer após o clique no item do menu
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
@@ -220,6 +208,7 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
         return true;
     }
 
+    // Métodos para abrir as telas correspondentes aos itens do menu lateral
     private void openScreen1() {
         Intent intent = new Intent(this, Tela_Agendamento.class);
         startActivity(intent);
@@ -249,17 +238,20 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
         Intent intent = new Intent(this, tela_login.class);
         startActivity(intent);
     }
+
     private void openScreen7() {
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
+
     private void openScreen8() {
         Intent intent = new Intent(this, Tela_servicosBarbearia.class);
         startActivity(intent);
     }
+
     private void openScreen9() {
         Intent intent = new Intent(this, Tela_profissionais.class);
         startActivity(intent);
     }
-
 }
+

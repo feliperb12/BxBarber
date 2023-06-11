@@ -16,9 +16,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Tela_servicosBarbearia extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    // Declaração dos componentes da interface
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
     private NavigationView navigationView;
@@ -30,12 +30,12 @@ public class Tela_servicosBarbearia extends AppCompatActivity implements Navigat
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servicos);
 
-        //CONFIGURAÇÕES NAVBAR E BOTTOMBAR
+        // CONFIGURAÇÕES NAVBAR E BOTTOMBAR
+
         // Referenciar os componentes do layout
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
         toolbar = findViewById(R.id.toolbar);
-
 
         // Configurar a Toolbar
         setSupportActionBar(toolbar);
@@ -80,6 +80,7 @@ public class Tela_servicosBarbearia extends AppCompatActivity implements Navigat
         });
         Intent intent = getIntent();
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
@@ -97,8 +98,9 @@ public class Tela_servicosBarbearia extends AppCompatActivity implements Navigat
         }
     }
 
+    // MENUBAR LATERAL
 
-    //MENUBAR LATERAL
+    // Método chamado quando um item do menu lateral é selecionado
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Verifique qual item do menu foi selecionado e abra a tela correspondente
@@ -121,13 +123,14 @@ public class Tela_servicosBarbearia extends AppCompatActivity implements Navigat
             case R.id.sair:
                 openScreen6();
                 break;
-
         }
         // Fecha o Navigation Drawer após o clique no item do menu
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    // Métodos para abrir as telas correspondentes
 
     private void openScreen1() {
         Intent intent = new Intent(this, Tela_Agendamento.class);
@@ -158,17 +161,21 @@ public class Tela_servicosBarbearia extends AppCompatActivity implements Navigat
         Intent intent = new Intent(this, tela_login.class);
         startActivity(intent);
     }
+
     private void openScreen7() {
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
+
     private void openScreen8() {
         Intent intent = new Intent(this, Tela_servicosBarbearia.class);
         startActivity(intent);
     }
+
     private void openScreen9() {
         Intent intent = new Intent(this, Tela_profissionais.class);
         startActivity(intent);
     }
 }
+
 

@@ -36,16 +36,17 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class Tela_DetalheBarbeiro extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private RatingBar ratingBar;
-    private ImageView imagemBarbeiro;
-    private TextView nomeBarbeiro, telefoneBarbeiro;
+    // Declaração dos componentes de interface
+    private RatingBar ratingBar; // Barra de avaliação
+    private ImageView imagemBarbeiro; // Imagem do barbeiro
+    private TextView nomeBarbeiro, telefoneBarbeiro; // Nome e telefone do barbeiro
 
-    private Button btn_avaliarBarbeiro;
+    private Button btn_avaliarBarbeiro; // Botão de avaliação
 
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle drawerToggle;
-    private NavigationView navigationView;
-    private Toolbar toolbar;
+    private DrawerLayout drawerLayout; // Layout do drawer (menu lateral)
+    private ActionBarDrawerToggle drawerToggle; // Toggle para abrir/fechar o drawer
+    private NavigationView navigationView; // Menu lateral de navegação
+    private Toolbar toolbar; // Barra de ferramentas
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -53,19 +54,19 @@ public class Tela_DetalheBarbeiro extends AppCompatActivity implements Navigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_barbeiro);
 
-        //CONFIGURAÇÕES NAVBAR E BOTTOMBAR
-        // Referenciar os componentes do layout
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigation_view);
-        toolbar = findViewById(R.id.toolbar);
+        // CONFIGURAÇÕES NAVBAR E BOTTOMBAR
 
+        // Referenciar os componentes do layout
+        drawerLayout = findViewById(R.id.drawer_layout); // Layout do drawer
+        navigationView = findViewById(R.id.navigation_view); // Menu lateral
+        toolbar = findViewById(R.id.toolbar); // Barra de ferramentas
 
         // Configurar a Toolbar
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar); // Define a toolbar como a action bar
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.icon); // Ícone dos três pontinhos
+            actionBar.setDisplayHomeAsUpEnabled(true); // Habilita o ícone de voltar
+            actionBar.setHomeAsUpIndicator(R.drawable.icon); // Define o ícone dos três pontinhos
         }
 
         // Configurar o Navigation Drawer
@@ -82,6 +83,7 @@ public class Tela_DetalheBarbeiro extends AppCompatActivity implements Navigatio
         // Configurar o Listener do menu lateral
         navigationView.setNavigationItemSelectedListener(this);
 
+        // Configurar o Bottom Navigation View
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -102,28 +104,34 @@ public class Tela_DetalheBarbeiro extends AppCompatActivity implements Navigatio
             }
         });
 
+        // Inicialização dos componentes de interface
         imagemBarbeiro = findViewById(R.id.imagem_barbeiro_detalhes);
         nomeBarbeiro = findViewById(R.id.nome_barbeiro_detalhes);
         telefoneBarbeiro = findViewById(R.id.telefone_barbeiro_detalhes);
         ratingBar = findViewById(R.id.ratingBar);
         btn_avaliarBarbeiro = findViewById(R.id.btn_verperfil);
 
+        // Obter os dados passados pela Intent
         Intent intent = getIntent();
         if (intent != null) {
             String nome = intent.getStringExtra("nome");
             String telefone = intent.getStringExtra("telefone");
             String imagemUrl = intent.getStringExtra("imagemUrl");
+
+            // Carregar a imagem do barbeiro usando a biblioteca Glide
             Glide.with(this)
                     .load(imagemUrl)
                     .into(imagemBarbeiro);
 
             // Definir os valores nos elementos de layout
-            //imagemBarbeiro.setImageResource(imagemResId);
             nomeBarbeiro.setText(nome);
             telefoneBarbeiro.setText(telefone);
         }
+
+        // Configurar o listener do botão de avaliação do barbeiro
         btn_avaliarBarbeiro.setOnClickListener(new View.OnClickListener() {
             String nome = intent.getStringExtra("nome");
+
             @Override
             public void onClick(View view) {
                 float rating = ratingBar.getRating();
@@ -164,8 +172,9 @@ public class Tela_DetalheBarbeiro extends AppCompatActivity implements Navigatio
                 });
             }
         });
-
     }
+
+    // Métodos para lidar com eventos do menu lateral
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -184,8 +193,7 @@ public class Tela_DetalheBarbeiro extends AppCompatActivity implements Navigatio
         }
     }
 
-
-    //MENUBAR LATERAL
+    // Implementação do NavigationView.OnNavigationItemSelectedListener
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Verifique qual item do menu foi selecionado e abra a tela correspondente
@@ -208,13 +216,15 @@ public class Tela_DetalheBarbeiro extends AppCompatActivity implements Navigatio
             case R.id.sair:
                 openScreen6();
                 break;
-
         }
+
         // Fecha o Navigation Drawer após o clique no item do menu
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    // Métodos para abrir telas
 
     private void openScreen1() {
         Intent intent = new Intent(this, Tela_Agendamento.class);
@@ -245,14 +255,17 @@ public class Tela_DetalheBarbeiro extends AppCompatActivity implements Navigatio
         Intent intent = new Intent(this, tela_login.class);
         startActivity(intent);
     }
+
     private void openScreen7() {
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
+
     private void openScreen8() {
         Intent intent = new Intent(this, Tela_servicosBarbearia.class);
         startActivity(intent);
     }
+
     private void openScreen9() {
         Intent intent = new Intent(this, Tela_profissionais.class);
         startActivity(intent);

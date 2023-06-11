@@ -37,6 +37,7 @@ import br.com.bxbarber.adpter.AgendamentoAdapter;
 import br.com.bxbarber.model.Agendamento;
 
 public class Tela_listAgendamento extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     private RecyclerView recyclerViewAgendamentos;
     private AgendamentoAdapter agendamentoAdapter;
     private List<Agendamento> agendamentos;
@@ -48,18 +49,33 @@ public class Tela_listAgendamento extends AppCompatActivity implements Navigatio
     private NavigationView navigationView;
     private Toolbar toolbar;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_list_agendamento);
 
-        //CONFIGURAÇÕES NAVBAR E BOTTOMBAR
+        // Configurar as configurações de navegação, como Navigation Drawer e Bottom Navigation View
+        setupNavigation();
+
+        // Configurar o RecyclerView para exibir a lista de agendamentos
+        setupRecyclerView();
+
+        // Configurar a referência para o Firestore
+        db = FirebaseFirestore.getInstance();
+
+        // Carregar os agendamentos do Firestore
+        carregarAgendamentos();
+
+        // Configurar os listeners para os eventos de clique nos itens da lista de agendamentos
+        setupItemClickListeners();
+    }
+
+    // Configurar as configurações de navegação, como Navigation Drawer e Bottom Navigation View
+    private void setupNavigation() {
         // Referenciar os componentes do layout
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
         toolbar = findViewById(R.id.toolbar);
-
 
         // Configurar a Toolbar
         setSupportActionBar(toolbar);
@@ -83,37 +99,51 @@ public class Tela_listAgendamento extends AppCompatActivity implements Navigatio
         // Configurar o Listener do menu lateral
         navigationView.setNavigationItemSelectedListener(this);
 
+        // Configurar o Bottom Navigation View
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                // Verifique qual item do menu foi selecionado e abra a tela correspondente
-                switch (item.getItemId()) {
-                    case R.id.profissionais:
-                        openScreen9();
-                        return true;
-                    case R.id.home:
-                        openScreen7();
-                        return true;
-                    case R.id.servicos:
-                        openScreen8();
-                        return true;
-                }
-                return false;
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            // Verifique qual item do menu foi selecionado e abra a tela correspondente
+            switch (item.getItemId()) {
+                case R.id.profissionais:
+                    openScreen9();
+                    return true;
+                case R.id.home:
+                    openScreen7();
+                    return true;
+                case R.id.servicos:
+                    openScreen8();
+                    return true;
             }
+            return false;
         });
-        Intent intent = getIntent();
+    }
 
+    // Configurar o RecyclerView para exibir a lista de agendamentos
+    private void setupRecyclerView() {
         recyclerViewAgendamentos = findViewById(R.id.recyclerViewAgendamentos);
         recyclerViewAgendamentos.setLayoutManager(new LinearLayoutManager(this));
         agendamentos = new ArrayList<>();
         agendamentoAdapter = new AgendamentoAdapter(agendamentos);
         recyclerViewAgendamentos.setAdapter(agendamentoAdapter);
         parentLayout = findViewById(android.R.id.content);
+    }
 
-        db = FirebaseFirestore.getInstance();
-        carregarAgendamentos();
+    // Carregar os agendamentos do Firestore
+    private void carregarAgendamentos() {
+        db.collection("agendamentos").get().addOnSuccessListener(queryDocumentSnapshots -> {
+            agendamentos.clear();
+            for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                String agendamentoId = documentSnapshot.getId();
+                Agendamento agendamento = documentSnapshot.toObject(Agendamento.class);
+                agendamento.setId(agendamentoId); // Definir o ID do agendamento
+                agendamentos.add(agendamento);
+            }
+            agendamentoAdapter.notifyDataSetChanged();
+        });
+    }
 
+    // Configurar os listeners para os eventos de clique nos itens da lista de agendamentos
+    private void setupItemClickListeners() {
         agendamentoAdapter.setOnItemClickListener(new AgendamentoAdapter.OnItemClickListener() {
             @Override
             public void onEditarClick(int position) {
@@ -129,48 +159,29 @@ public class Tela_listAgendamento extends AppCompatActivity implements Navigatio
         });
     }
 
-    private void carregarAgendamentos() {
-        db.collection("agendamentos").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-            @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                agendamentos.clear();
-                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                    String agendamentoId = documentSnapshot.getId();
-                    Agendamento agendamento = documentSnapshot.toObject(Agendamento.class);
-                    agendamento.setId(agendamentoId); // Definir o ID do agendamento
-                    agendamentos.add(agendamento);
-                }
-                agendamentoAdapter.notifyDataSetChanged();
-            }
-        });
-    }
-
+    // Excluir um agendamento do Firestore
     private void excluirAgendamento(Agendamento agendamento) {
         if (agendamento != null && agendamento.getId() != null) {
             db.collection("agendamentos").document(agendamento.getId()).delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Snackbar snackbar = Snackbar.make(parentLayout, "Agendamento foi excluido no Firestore", Snackbar.LENGTH_SHORT);
-                            snackbar.show();
-                        }
+                    .addOnSuccessListener(aVoid -> {
+                        Snackbar snackbar = Snackbar.make(parentLayout, "Agendamento foi excluído no Firestore", Snackbar.LENGTH_SHORT);
+                        snackbar.show();
                     })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Snackbar snackbar = Snackbar.make(parentLayout, "Erro ao excluir", Snackbar.LENGTH_SHORT);
-                            snackbar.show();
-                        }
+                    .addOnFailureListener(e -> {
+                        Snackbar snackbar = Snackbar.make(parentLayout, "Erro ao excluir", Snackbar.LENGTH_SHORT);
+                        snackbar.show();
                     });
         }
     }
 
+    // Abrir a tela de edição de agendamento
     private void abrirTelaEdicao(Agendamento agendamento) {
-//        Intent intent = new Intent(Tela_listAgendamento.this, EdicaoAgendamentoActivity.class);
-//        intent.putExtra("agendamento", agendamento);
-//        startActivity(intent);
+        // Intent intent = new Intent(Tela_listAgendamento.this, EdicaoAgendamentoActivity.class);
+        // intent.putExtra("agendamento", agendamento);
+        // startActivity(intent);
     }
 
+    // Implementação do método onOptionsItemSelected para tratar o clique no ícone da Toolbar
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
@@ -179,6 +190,7 @@ public class Tela_listAgendamento extends AppCompatActivity implements Navigatio
         return super.onOptionsItemSelected(item);
     }
 
+    // Implementação do método onBackPressed para tratar o comportamento do botão de voltar
     @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(navigationView)) {
@@ -188,8 +200,7 @@ public class Tela_listAgendamento extends AppCompatActivity implements Navigatio
         }
     }
 
-
-    //MENUBAR LATERAL
+    // Implementação do método onNavigationItemSelected para tratar o clique nos itens do menu lateral
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Verifique qual item do menu foi selecionado e abra a tela correspondente
@@ -212,7 +223,6 @@ public class Tela_listAgendamento extends AppCompatActivity implements Navigatio
             case R.id.sair:
                 openScreen6();
                 break;
-
         }
         // Fecha o Navigation Drawer após o clique no item do menu
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
@@ -220,6 +230,7 @@ public class Tela_listAgendamento extends AppCompatActivity implements Navigatio
         return true;
     }
 
+    // Métodos para abrir telas correspondentes aos itens do menu lateral
     private void openScreen1() {
         Intent intent = new Intent(this, Tela_Agendamento.class);
         startActivity(intent);
@@ -249,10 +260,12 @@ public class Tela_listAgendamento extends AppCompatActivity implements Navigatio
         Intent intent = new Intent(this, tela_login.class);
         startActivity(intent);
     }
+
     private void openScreen7() {
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
+
     private void openScreen8() {
         Intent intent = new Intent(this, Tela_servicosBarbearia.class);
         startActivity(intent);

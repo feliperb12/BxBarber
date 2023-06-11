@@ -25,7 +25,6 @@ public class Tela_noticias extends AppCompatActivity implements NavigationView.O
 
     private ImageView likeImage;
     private ImageView deslikeImage;
-
     private View parentLayout;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
@@ -38,12 +37,12 @@ public class Tela_noticias extends AppCompatActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticias);
 
-        //CONFIGURAÇÕES NAVBAR E BOTTOMBAR
+        // CONFIGURAÇÕES NAVBAR E BOTTOMBAR
+
         // Referenciar os componentes do layout
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
         toolbar = findViewById(R.id.toolbar);
-
 
         // Configurar a Toolbar
         setSupportActionBar(toolbar);
@@ -104,6 +103,8 @@ public class Tela_noticias extends AppCompatActivity implements NavigationView.O
             }
         });
     }
+
+    // Método para exibir um Snackbar com uma mensagem
     private void showSnackbar(String message) {
         Snackbar snackbar = Snackbar.make(parentLayout, message, Snackbar.LENGTH_SHORT);
         snackbar.show();
@@ -126,8 +127,7 @@ public class Tela_noticias extends AppCompatActivity implements NavigationView.O
         }
     }
 
-
-    //MENUBAR LATERAL
+    // MENUBAR LATERAL
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Verifique qual item do menu foi selecionado e abra a tela correspondente
@@ -150,7 +150,6 @@ public class Tela_noticias extends AppCompatActivity implements NavigationView.O
             case R.id.sair:
                 openScreen6();
                 break;
-
         }
         // Fecha o Navigation Drawer após o clique no item do menu
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
@@ -158,6 +157,7 @@ public class Tela_noticias extends AppCompatActivity implements NavigationView.O
         return true;
     }
 
+    // Métodos para abrir as telas correspondentes aos itens do menu lateral
     private void openScreen1() {
         Intent intent = new Intent(this, Tela_Agendamento.class);
         startActivity(intent);
@@ -187,14 +187,17 @@ public class Tela_noticias extends AppCompatActivity implements NavigationView.O
         Intent intent = new Intent(this, tela_login.class);
         startActivity(intent);
     }
+
     private void openScreen7() {
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
+
     private void openScreen8() {
         Intent intent = new Intent(this, Tela_servicosBarbearia.class);
         startActivity(intent);
     }
+
     private void openScreen9() {
         Intent intent = new Intent(this, Tela_profissionais.class);
         startActivity(intent);
