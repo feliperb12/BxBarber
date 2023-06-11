@@ -5,11 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="401dp"
+        android:layout_height="642dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="match_parent"
@@ -21,34 +27,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:inputType="date"
-            android:hint="Selecione a Data"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
+            android:background="@drawable/edittext_agendamento"
             android:drawableEnd="@drawable/ic_arrow"
-            android:background="@drawable/edittext_agendamento"/>
+            android:hint="Selecione a Data"
+            android:inputType="date"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" />
 
         <Spinner
             android:id="@+id/spin_servico_tela"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:background="@drawable/edittext_agendamento"
+            android:drawableEnd="@drawable/ic_arrow"
             android:hint="Selecione o Serviço"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:drawableEnd="@drawable/ic_arrow"
-            android:background="@drawable/edittext_agendamento"/>
+            android:paddingRight="15dp" />
 
         <Spinner
             android:id="@+id/spin_profissional_tela"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:background="@drawable/edittext_agendamento"
+            android:drawableEnd="@drawable/ic_arrow"
             android:hint="Selecione o Profissional"
             android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:drawableEnd="@drawable/ic_arrow"
-            android:background="@drawable/edittext_agendamento"/>
+            android:paddingRight="15dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="311dp"
@@ -84,10 +90,10 @@
             android:id="@+id/btn_agendar_tela"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Agendar"
             android:layout_marginTop="30dp"
-            android:textColor="@color/white"
+            android:background="@drawable/button_style"
             android:backgroundTint="@color/orange"
-            android:background="@drawable/button_style"/>
+            android:text="Agendar"
+            android:textColor="@color/white" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
