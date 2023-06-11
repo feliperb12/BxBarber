@@ -14,7 +14,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="145dp"
-            android:src="@drawable/logo_transparente" />
+            android:src="@drawable/bxbarber_logo" />
 
         <EditText
             android:id="@+id/edit_date_editar"
