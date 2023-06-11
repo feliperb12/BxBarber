@@ -4,18 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_menu"
+            app:title="RANKING"
+            app:titleCentered="true"
+            app:titleTextColor="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/orange"
+
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:src="@drawable/logo_transparente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="330dp"
         android:layout_height="400dp"
-        android:layout_margin="10dp"
         android:background="@drawable/borda"
         android:elevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629">
+        app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
         <TableLayout
             android:id="@+id/tableLayout"
@@ -40,9 +83,9 @@
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
                     android:gravity="center"
-                    android:textSize="13sp"
                     android:text="Classificação"
                     android:textColor="@android:color/black"
+                    android:textSize="13sp"
                     android:textStyle="bold" />
 
                 <!-- Coluna de Nomes dos Barbeiros -->
@@ -78,24 +121,21 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                    />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="2dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                     />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="2dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                    />
+                    android:gravity="center" />
             </TableRow>
 
             <TableRow
@@ -109,24 +149,21 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                   />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="2dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                    />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="2dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                    />
+                    android:gravity="center" />
             </TableRow>
 
             <!-- Adicione mais TableRow para as outras linhas -->
@@ -141,24 +178,21 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                    />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="2dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                     />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="2dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                    />
+                    android:gravity="center" />
             </TableRow>
 
             <TableRow
@@ -172,24 +206,21 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                    />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="2dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                    />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="2dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                     />
+                    android:gravity="center" />
             </TableRow>
 
             <TableRow
@@ -202,24 +233,21 @@
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                     />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="2dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                     />
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="2dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
-                    android:gravity="center"
-                     />
+                    android:gravity="center" />
             </TableRow>
 
         </TableLayout>

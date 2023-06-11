@@ -16,7 +16,4 @@
         android:icon="@drawable/ic_cut"
         android:title="@string/menu_servicos"/>
 
-    <item android:id="@+id/menu"
-        android:icon="@drawable/ic_menu"
-        android:title="@string/menu"/>
 </menu>

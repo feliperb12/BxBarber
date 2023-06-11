@@ -5,13 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="145dp"
-        android:src="@drawable/logo_transparente"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -54,14 +47,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="315dp"
-        android:layout_height="465dp"
+        android:layout_height="450dp"
         android:layout_margin="10dp"
         android:background="@drawable/borda"
+
         android:elevation="8dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_barbeiro"
@@ -152,14 +146,14 @@ SEXTA -------   09:00 ÁS 18:00
             android:id="@+id/btn_verperfil"
             android:layout_width="120dp"
             android:layout_height="48dp"
+            android:background="@drawable/button_style"
+            android:backgroundTint="@color/orange"
             android:text="Avaliar"
+            android:textColor="@color/white"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:background="@drawable/button_style"
-            android:backgroundTint="@color/orange"
-            android:textColor="@color/white"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
 
         <RatingBar

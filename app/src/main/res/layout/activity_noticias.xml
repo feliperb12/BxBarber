@@ -5,30 +5,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_menu"
+            app:title="NOTÍCIAS"
+            app:titleCentered="true"
+            app:titleTextColor="@color/white" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/orange"
+
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="145dp"
+        android:src="@drawable/logo_transparente"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="280dp"
-        android:layout_height="120dp"
-        android:layout_margin="10dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
         android:background="@drawable/borda"
         android:elevation="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout_promocao"
+        android:layout_marginTop="10dp"
+
         app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintHorizontal_bias="0.488"
-
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.841">
+        app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="95dp"
             android:layout_margin="10dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -39,7 +78,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="Dicas:\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio,Lorem ipsum doetur  odio."
+                android:text="Dicas:\n Fique atento aos horários de funcionamento dos barbeiros. \n Sempre confira sua agenda."
+                android:textSize="13sp"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/black" />
 
@@ -50,22 +90,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout_promocao"
-        android:layout_width="280dp"
+        android:layout_width="300dp"
         android:layout_height="100dp"
-        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/borda"
         android:elevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <LinearLayout
             android:id="@+id/linearLayout_promocao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="95dp"
             android:layout_margin="10dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +117,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="Promoções:\nLorem ipsum dolor sit amorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio."
+                android:text="Promoções:\n Disponiveis em datas comemorativas."
                 android:textAlignment="textStart"
                 android:textColor="@android:color/black" />
 
@@ -90,22 +128,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout_new_produtos"
-        android:layout_width="280dp"
-        android:layout_height="120dp"
-        android:layout_margin="10dp"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/borda"
         android:elevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_promocao"
-        app:layout_constraintVertical_bias="0.158">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_promocao">
 
         <LinearLayout
             android:id="@+id/linearLayout_new_produtos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="280dp"
+            android:layout_height="95dp"
             android:layout_margin="10dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -118,7 +153,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="Novos Produtos:\nLorem ipsum dollor sit amet, consectetur adipiscing elit. Curabitur odio,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur odio."
+                android:text="Novos Produtos:\nConfira nosso novo shampoo para barba."
                 android:textAlignment="textStart"
                 android:textColor="@android:color/black" />
 
@@ -133,10 +168,10 @@
         android:text="Foram importantes as Notícias?\nDiga para nós!"
         android:textAlignment="center"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout_new_produtos"
         app:layout_constraintVertical_bias="0.855" />
 
     <ImageView
@@ -146,10 +181,10 @@
         android:src="@drawable/like"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintHorizontal_bias="0.298"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931" />
+        app:layout_constraintTop_toBottomOf="@+id/importante_noticia"
+        app:layout_constraintVertical_bias="0.284" />
 
     <ImageView
         android:id="@+id/deslike"
@@ -158,9 +193,9 @@
         android:src="@drawable/deslike"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.721"
+        app:layout_constraintHorizontal_bias="0.704"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931" />
+        app:layout_constraintTop_toBottomOf="@+id/importante_noticia"
+        app:layout_constraintVertical_bias="0.284" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

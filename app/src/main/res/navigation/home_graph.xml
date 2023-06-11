@@ -11,16 +11,4 @@
         tools:layout="@layout/fragment_home_screen">
 
     </fragment>
-
-    <fragment
-        android:id="@+id/homeAgendamento"
-        android:name="br.com.bxbarber.FragAgendamento"
-        tools:layout="@layout/fragment_agendamento">
-    </fragment>
-
-    <fragment
-        android:id="@+id/homeMinhaAgenda"
-        android:name="br.com.bxbarber.FragMinhaAgenda"
-        tools:layout="@layout/fragment_minha_agenda">
-    </fragment>
 </navigation>

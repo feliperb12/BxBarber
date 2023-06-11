@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -23,16 +23,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_menu"
-            app:title="Bem vindo(a)"
-            app:titleTextColor="@color/white"/>
+            app:title="AJUDA"
+            app:titleCentered="true"
+            app:titleTextColor="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/orange"
         android:layout_gravity="bottom"
+        android:background="@color/orange"
 
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
@@ -53,9 +54,9 @@
         android:id="@+id/constraintLayout"
         android:layout_width="350dp"
         android:layout_height="150dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/borda"
         android:elevation="1dp"
-        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5">
@@ -91,49 +92,49 @@ Estamos a disposição para ajudá-lo da melhor maneira possível."
         android:id="@+id/whatsappButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="352dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="@android:color/white"
         android:drawableLeft="@drawable/whatsapp"
         android:text="Whastapp"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/emailButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <Button
         android:id="@+id/emailButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="@android:color/white"
         android:drawableLeft="@drawable/email"
         android:text="E-mail"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/instagramButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/whatsappButton" />
 
     <Button
         android:id="@+id/instagramButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:textColor="@android:color/black"
+        android:layout_marginTop="28dp"
         android:backgroundTint="@android:color/white"
         android:drawableLeft="@drawable/instagram"
         android:text="Instagram"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailButton">
 
     </Button>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
-        android:layout_width="280dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:layout_marginBottom="100dp"
