@@ -40,7 +40,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/table_border"
                     android:gravity="center"
-                    android:textSize="13dp"
+                    android:textSize="13sp"
                     android:text="Classificação"
                     android:textColor="@android:color/black"
                     android:textStyle="bold" />
