@@ -246,7 +246,7 @@ public class Tela_profissionais extends AppCompatActivity implements MyAdapterPr
     }
 
     private void openScreen6() {
-        Intent intent = new Intent(this, Tela_profissionais.class);
+        Intent intent = new Intent(this, tela_login.class);
         startActivity(intent);
     }
     private void openScreen7() {
