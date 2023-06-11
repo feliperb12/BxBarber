@@ -99,7 +99,7 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
                 // Verifique qual item do menu foi selecionado e abra a tela correspondente
                 switch (item.getItemId()) {
                     case R.id.profissionais:
-                        openScreen6();
+                        openScreen9();
                         return true;
                     case R.id.home:
                         openScreen7();
@@ -354,6 +354,10 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
     }
     private void openScreen8() {
         Intent intent = new Intent(this, Tela_servicosBarbearia.class);
+        startActivity(intent);
+    }
+    private void openScreen9() {
+        Intent intent = new Intent(this, Tela_profissionais.class);
         startActivity(intent);
     }
 
