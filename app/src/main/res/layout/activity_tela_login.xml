@@ -103,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/senhaLogin" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_ou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -128,7 +128,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"/>
+        app:layout_constraintTop_toBottomOf="@+id/txt_ou"/>
 
     <Button
         android:id="@+id/loginFacebook"
