@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_margin="10dp"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     android:elevation="4dp"
     android:background="@drawable/borda"
     >
@@ -48,12 +48,12 @@
         app:layout_constraintStart_toEndOf="@+id/card_barbeiro"
         app:layout_constraintTop_toTopOf="parent"/>
 
+
     <TextView
-        android:id="@+id/idade_barbeiro"
+        android:id="@+id/telefone_barbeiro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="10dp"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,27 +61,17 @@
         app:layout_constraintStart_toEndOf="@+id/nome_barbeiro"
         app:layout_constraintTop_toBottomOf="@+id/nome_barbeiro" />
 
-    <TextView
-        android:id="@+id/telefone_barbeiro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="10dp"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/nome_barbeiro"
-        app:layout_constraintTop_toBottomOf="@+id/idade_barbeiro" />
-
     <Button
         android:id="@+id/btn_verperfil"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="108dp"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
         android:layout_marginTop="4dp"
+        android:background="@color/orange"
         android:text="Ver Perfil"
+        android:textColor="@color/white"
         android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.631"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/telefone_barbeiro" />
 
