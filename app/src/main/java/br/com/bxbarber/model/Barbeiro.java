@@ -1,33 +1,30 @@
 package br.com.bxbarber.model;
 
 public class Barbeiro {
-    private Integer foto;
+    private String imagemUrl;
     private String nomeBarbeiro;
     private String telefoneBarbeiro;
-
-//    private String btn_perfil;
 
     public Barbeiro() {
     }
 
-    public Barbeiro(Integer foto, String nomeBarbeiro, String telefoneBarbeiro) {
-        this.foto = foto;
+    public Barbeiro(String nomeBarbeiro, String telefoneBarbeiro, String imagemUrl) {
+        this.imagemUrl = imagemUrl;
         this.nomeBarbeiro = nomeBarbeiro;
         this.telefoneBarbeiro = telefoneBarbeiro;
     }
 
-    public Barbeiro( String nomeBarbeiro, String telefoneBarbeiro) {
+    public Barbeiro(String nomeBarbeiro, String telefoneBarbeiro) {
         this.nomeBarbeiro = nomeBarbeiro;
         this.telefoneBarbeiro = telefoneBarbeiro;
     }
 
-
-    public Integer getFoto() {
-        return foto;
+    public String getImagemUrl() {
+        return imagemUrl;
     }
 
-    public void setFoto(Integer foto) {
-        this.foto = foto;
+    public void setImagemUrl(String imagemUrl) {
+        this.imagemUrl = imagemUrl;
     }
 
     public String getNomeBarbeiro() {

@@ -6,34 +6,105 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/borda"
-        android:elevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="310dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <!-- Toolbar -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#DD9F00"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txt_limos"
+                    android:layout_width="341dp"
+                    android:layout_height="37dp"
+                    android:text="BXBARBER"
+                    android:textAlignment="gravity"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.105" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom"
+                android:background="@color/orange"
+                app:itemIconTint="@color/white"
+                app:itemTextColor="@color/white"
+                app:labelVisibilityMode="labeled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/bottom_navigation" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:src="@drawable/logo_transparente_bxbarber"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <TextView
-                android:id="@+id/txt_teste"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="SERVIÇOS        -----       VALORES
+                android:id="@+id/txt_servicos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Serviços"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borda"
+                android:elevation="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="242dp"
+                    android:layout_height="244dp"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/txt_teste"
+                        android:layout_width="242dp"
+                        android:layout_height="match_parent"
+                        android:text="SERVIÇOS        -----       VALORES
                             \n
                             \nBARBA           -----       R$20,00
                             \n
@@ -55,12 +126,26 @@
 
 
 "
-                android:textColor="@android:color/black" />
+                        android:textColor="@android:color/black"
+                        android:textSize="10dp" />
 
 
-        </LinearLayout>
+                </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:elevation="8dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:menu="@menu/navigation_drawer" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

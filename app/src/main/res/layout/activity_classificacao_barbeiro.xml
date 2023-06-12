@@ -5,225 +5,343 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="315dp"
-        android:layout_height="400dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/borda"
-        android:elevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <TableLayout
-            android:id="@+id/tableLayout"
-            android:layout_width="312dp"
-            android:layout_height="300dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.333"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.74">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <TableRow
+            <!-- Toolbar -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#DD9F00"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txt_limos"
+                    android:layout_width="341dp"
+                    android:layout_height="37dp"
+                    android:text="BXBARBER"
+                    android:textAlignment="gravity"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.105" />
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom"
+                android:background="@color/orange"
+                app:itemIconTint="@color/white"
+                app:itemTextColor="@color/white"
+                app:labelVisibilityMode="labeled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu="@menu/bottom_navigation" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/table_border">
+                android:text="Ranking"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-                <!-- Coluna de Classificação -->
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:src="@drawable/logo_transparente_bxbarber"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout4"
+                android:layout_width="371dp"
+                android:layout_height="327dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/borda"
+                android:elevation="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.735">
+
                 <TextView
+                    android:id="@+id/txt_colocacao"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/table_border"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="9dp"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Classificação"
+                    android:text="Colocação"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
-                <!-- Coluna de Nomes dos Barbeiros -->
                 <TextView
+                    android:id="@+id/txt_rating"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:layout_weight="2"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="Barbeiro"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold" />
-
-                <!-- Coluna de Quantidade de Rating -->
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="2"
+                    android:layout_marginEnd="36dp"
+                    android:layout_marginBottom="9dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="Rating"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold" />
-            </TableRow>
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_border">
 
-                <!-- Linha 1 -->
                 <TextView
+                    android:id="@+id/txt_name_barber"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
+                    android:layout_marginBottom="9dp"
                     android:layout_weight="1"
-                    android:background="@drawable/table_border"
                     android:gravity="center"
-                    android:text="1º" />
+                    android:text="Barbeiro"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+                    app:layout_constraintEnd_toStartOf="@+id/txt_rating"
+                    app:layout_constraintStart_toEndOf="@+id/txt_colocacao"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="Barbeiro 1" />
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="345dp"
+                    android:layout_height="233dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.333"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.74">
 
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="9" />
-            </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_border">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_border">
+                        <!-- Coluna de Classificação -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center"
+                            android:text="Classificação"
+                            android:textColor="@android:color/black"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
 
-                <!-- Linha 2 -->
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="2º" />
+                        <!-- Coluna de Nomes dos Barbeiros -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center"
+                            android:text="Barbeiro"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="Barbeiro 2" />
+                        <!-- Coluna de Quantidade de Rating -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Rating"
+                            android:textColor="@android:color/black"
+                            android:textStyle="bold" />
+                    </TableRow>
 
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="7" />
-            </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_border">
 
-            <!-- Adicione mais TableRow para as outras linhas -->
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_border">
+                        <!-- Linha 1 -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
 
-                <!-- Linha 3 -->
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="3º" />
+                        <TextView
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
 
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="Barbeiro 3" />
+                        <TextView
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
+                    </TableRow>
 
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="5" />
-            </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_border">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/table_border">
+                        <!-- Linha 2 -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
 
-                <!-- Linha 4 -->
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="4º" />
+                        <TextView
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
 
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="Barbeiro 4" />
+                        <TextView
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
+                    </TableRow>
 
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text=" 4" />
-            </TableRow>
+                    <!-- Adicione mais TableRow para as outras linhas -->
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_border">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                        <!-- Linha 3 -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
 
-                <!-- Linha 5 -->
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="5º" />
+                        <TextView
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
 
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="Barbeiro 5" />
+                        <TextView
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
+                    </TableRow>
 
-                <TextView
-                    android:layout_width="2dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/table_border"
-                    android:gravity="center"
-                    android:text="3" />
-            </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/table_border">
 
-        </TableLayout>
+                        <!-- Linha 4 -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!-- Linha 5 -->
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:layout_width="2dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_border"
+                            android:gravity="center" />
+                    </TableRow>
+
+                </TableLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:elevation="8dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:menu="@menu/navigation_drawer" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

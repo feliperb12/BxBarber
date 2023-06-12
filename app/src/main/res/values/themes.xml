@@ -3,7 +3,7 @@
     <style name="Theme.BxBarber" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/orange</item>
-        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black2</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
 
         <item name="android:fontFamily">@font/roboto_mono_medium</item>
-        <item name="android:textViewStyle"> @color/black2</item>
+        <item name="android:textViewStyle">@color/black2</item>
     </style>
 
     <style name="ViewStyle">
@@ -23,15 +23,24 @@
     </style>
 
     <style name="ButtonStyle" parent="@android:style/Widget.Button">
-        <item name="android:background"> @drawable/button_style</item>
+        <item name="android:background">@drawable/button_style</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">18sp</item>
     </style>
 
     <style name="ButtonStyleIcon" parent="@android:style/Widget.Button">
-        <item name="android:background"> @drawable/button_style_icon</item>
+        <item name="android:background">@drawable/button_style_icon</item>
         <item name="android:textColor">@color/black2</item>
         <item name="android:textSize">15sp</item>
     </style>
+
+    <style name="Theme.BxBarber.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.BxBarber.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.BxBarber.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

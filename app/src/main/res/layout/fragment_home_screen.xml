@@ -12,9 +12,10 @@
 
         <ImageView
             android:id="@+id/logo"
+            android:layout_marginTop="70dp"
             android:layout_width="match_parent"
             android:layout_height="145dp"
-            android:src="@drawable/logo"
+            android:src="@drawable/logo_transparente_bxbarber"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +47,7 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="lorem LOREM LOREM LOREM LOREM LORE :"
+            android:text="Somos uma barbearia inovadora, a qual damos conforto e felicidade para os nossos clientes. Priorizamos um bom atendimento com grande qualidade."
             android:textSize="15sp"
 
             app:layout_constraintEnd_toEndOf="@+id/view4"
@@ -80,7 +81,7 @@
             android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="lorem LOREM LOREM LOREM LOREM LORE :"
+            android:text="Rua Assunção, Q20, L15 e Nº12\nBairro: Santo Antônio Lisboa"
             android:textSize="15sp"
 
             app:layout_constraintEnd_toEndOf="@+id/view5"
