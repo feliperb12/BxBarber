@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="145dp"
         android:layout_marginTop="0dp"
-        android:src="@drawable/bxbarber_logo"
+        android:src="@drawable/logo_transparente_bxbarber"
         android:contentDescription="Logo"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,14 +148,13 @@
 
     <Button
         android:id="@+id/telaCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="140dp"
+        android:layout_height="31dp"
         android:background="@android:color/transparent"
         android:text="Cadastrar-se"
-        android:textColor="@color/black2"
         android:textAllCaps="false"
-
+        android:textColor="@color/black2"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginFacebook" />

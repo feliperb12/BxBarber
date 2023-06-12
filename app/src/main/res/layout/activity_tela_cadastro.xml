@@ -197,15 +197,15 @@
 
     <Button
         android:id="@+id/voltarLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="134dp"
+        android:layout_height="25dp"
         android:background="@android:color/transparent"
         android:text="Possuo Cadastro"
-        android:textColor="@color/black2"
+        android:textStyle="italic"
         android:textAllCaps="false"
-
+        android:textColor="@color/black2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastrodeCliente" />
 

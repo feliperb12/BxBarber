@@ -60,7 +60,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:src="@drawable/bxbarber_logo"
+                android:src="@drawable/logo_transparente_bxbarber"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
