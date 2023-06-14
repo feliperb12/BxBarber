@@ -6,7 +6,6 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -41,6 +40,8 @@ import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import br.com.bxbarber.model.Adicionar_agendamento;
 
 public class Tela_Agendamento extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -262,9 +263,10 @@ public class Tela_Agendamento extends AppCompatActivity implements NavigationVie
                     if (task.isSuccessful() && !task.getResult().isEmpty()) {
                         DocumentSnapshot document = task.getResult().getDocuments().get(0);
                         String duracao = document.getString("duracao");
+                        Double valor = document.getDouble("valor");
 
                         // Crie um novo objeto Appointment com os dados selecionados e a duração obtida
-                        Adicionar_agendamento appointment = new Adicionar_agendamento(data, servico, barbeiro, duracao);
+                        Adicionar_agendamento appointment = new Adicionar_agendamento(data, servico, barbeiro, duracao,valor);
 
                         // Salve o objeto Appointment no Firestore
                         db.collection("agendamentos")

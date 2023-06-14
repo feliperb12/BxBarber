@@ -106,12 +106,13 @@ Estamos a disposição para ajudá-lo da melhor maneira possível."
                 android:id="@+id/whatsappButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="356dp"
+                android:layout_marginTop="360dp"
                 android:backgroundTint="@android:color/white"
                 android:drawableLeft="@drawable/whatsapp"
                 android:text="Whastapp"
                 android:textColor="@android:color/black"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.219"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -119,12 +120,13 @@ Estamos a disposição para ajudá-lo da melhor maneira possível."
                 android:id="@+id/emailButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
                 android:backgroundTint="@android:color/white"
                 android:drawableLeft="@drawable/email"
                 android:text="E-mail"
                 android:textColor="@android:color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintHorizontal_bias="0.207"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/whatsappButton" />
 
@@ -139,9 +141,10 @@ Estamos a disposição para ajudá-lo da melhor maneira possível."
                 android:textColor="@android:color/black"
                 app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.225"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailButton"
-                app:layout_constraintVertical_bias="0.0">
+                app:layout_constraintVertical_bias="1.0">
 
             </Button>
 

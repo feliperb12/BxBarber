@@ -151,7 +151,7 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
                                                         " " + String.format("%02d:%02d", hourOfDay, minute));
 
                                                 // Chamada para realizar a consulta e atualizar o ListView
-                                                //realizarConsultaNoFire();
+//                                                realizarConsultaNoFire(view);
                                             }
                                         }, hour, minutes, true);
 
@@ -192,7 +192,7 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
                                                         " " + String.format("%02d:%02d", hourOfDay, minute));
 
                                                 // Chamada para realizar a consulta e atualizar o ListView
-                                                //realizarConsultaNoFire();
+//                                                realizarConsultaNoFire(view);
                                             }
                                         }, hour, minutes, true);
 
@@ -213,22 +213,14 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
 
         // Converter as datas para o formato adequado para a consulta no Firestore
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
-        Date dateInicialObj = null;
-        Date dateFinalObj = null;
-        try {
-            dateInicialObj = dateFormat.parse(dataInicial);
-            dateFinalObj = dateFormat.parse(dataFinal);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
         // Criar referência à coleção no Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference cortesRef = db.collection("cortes");
+        CollectionReference cortesRef = db.collection("agendamentos");
 
         // Consultar os dados com base nas datas selecionadas
-        Query query = cortesRef.whereGreaterThanOrEqualTo("data", dateInicialObj)
-                .whereLessThanOrEqualTo("data", dateFinalObj);
+        Query query = cortesRef.whereGreaterThanOrEqualTo("data", dataInicial)
+                .whereLessThanOrEqualTo("data", dataFinal);
 
         query.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
@@ -240,11 +232,8 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
                 for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                     // Extrair os dados necessários do documento (serviço, data e valor)
                     String servico = document.getString("servico");
-                    Date data = document.getDate("data");
-                    double valor = document.getDouble("valor_servico");
-
-                    // Formatar a data para exibição
-                    String dataFormatada = dateFormat.format(data);
+                    String data = document.getString("data");
+                    double valor = document.getDouble("valor");
 
                     // Formatar o valor para duas casas decimais e substituir o ponto por vírgula
                     DecimalFormatSymbols symbols = new DecimalFormatSymbols();
@@ -255,7 +244,7 @@ public class Tela_historico extends AppCompatActivity implements NavigationView.
 
 
                     // Construir a string a ser exibida no ListView
-                    String item = "R$" + valorFormatado + " - " + servico + " " + dataFormatada;
+                    String item = "R$" + valorFormatado + " - " + servico + " " + data;
                     cortesList.add(item);
                     valorTotal += valor;
                     valorTotalFormatado = decimalFormat.format(valorTotal);
