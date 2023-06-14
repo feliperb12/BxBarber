@@ -1,4 +1,4 @@
-package br.com.bxbarber;
+package br.com.bxbarber.model;
 
 public class Adicionar_agendamento {
     private String data;
@@ -6,15 +6,18 @@ public class Adicionar_agendamento {
     private String barbeiro;
     private String duracao;
 
+    private Double valor;
+
     // Construtor vazio necessário para o Firebase Firestore
     public Adicionar_agendamento() {
     }
 
-    public Adicionar_agendamento(String data, String servico, String barbeiro, String duracao) {
+    public Adicionar_agendamento(String data, String servico, String barbeiro, String duracao, Double valor) {
         this.data = data;
         this.servico = servico;
         this.barbeiro = barbeiro;
         this.duracao = duracao;
+        this.valor = valor;
     }
 
     public Adicionar_agendamento(String data, String servico, String barbeiro) {
@@ -41,6 +44,7 @@ public class Adicionar_agendamento {
                 ", service='" + servico + '\'' +
                 ", barber='" + barbeiro + '\'' +
                 ", duration='" + duracao + '\'' +
+                ", valor='" + valor + '\'' +
                 '}';
     }
 
@@ -74,5 +78,13 @@ public class Adicionar_agendamento {
 
     public void setDuracao(String duracao) {
         this.duracao = duracao;
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
     }
 }
